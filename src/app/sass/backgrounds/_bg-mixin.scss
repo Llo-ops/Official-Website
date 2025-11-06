@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '../abstracts/colors' as c;
+@use '../abstracts/variables' as v;
+@use '../abstracts/typography' as t;
+@use '../abstracts/mixins' as *;
+
+@mixin bg($background) {
+
+  /* COFFEE BACKGROUNDS */
+  @if $background == 'coffee-dark' {
+    background-color: map.get(map.get(c.$colors, external-design), bg-extra);
+    width: 100%;
+    height: 100vh;
+
+    background-image: radial-gradient(circle at center, map.get(map.get(c.$colors, lightmode), light-fg) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-repeat: repeat-x repeat-y;
+  }
+  @if $background == 'coffee-light' {
+    background-color: map.get(map.get(c.$colors, lightmode), light-bg);
+    width: 100%;
+    height: 100vh;
+
+    background-image: radial-gradient(circle at center, map.get(map.get(c.$colors, lightmode), light-fg) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-repeat: repeat-x repeat-y;
+  }
+
+}

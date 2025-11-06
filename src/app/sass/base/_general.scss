@@ -2,9 +2,10 @@
 @use '../abstracts/colors' as c;
 @use '../abstracts/variables' as v;
 @use '../abstracts/typography' as t;
+@use '../abstracts/mixins' as *;
 
 * {
-  font-family: t.$ff-family-sans;
+  @include textStyle(poppins, normal, regular);
 }
 
 ul, ol {

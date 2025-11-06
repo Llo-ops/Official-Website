@@ -120,37 +120,9 @@ flexcombo($type(h-$type), $direction(x, y, both))       = flex horizontally, bas
 }
 
 @mixin textStyle($family, $size, $weight) {
-
-  @if $size != null {
-    font-size: map.get(t.$fs, $size);
-    else {
-      font-size: map.get(t.$fs, normal);
-    }
-  }
-
-  @if $family != null {
-    font-family: map.get(t.$ff, $family);
-    else {
-      font-family: map.get();
-    }
-  } 
-
-  @if $weight != null {
-    font-weight: map.get(t.$fw, $weight);
-    else {
-      font-weight: map.get(t.$fw, regular);
-    }
-  }
-
-  @else if $family == 'default' & $size == 'default' & $weight == 'default' {
-    font-family: map.get(t.$ff, inter);
-    font-size: map.get(t.$fs, small);
-    font-weight: map.get(t.$fw, regular);
-  }
-  
-  @else {
-    @warn "Unknown Text Style: #{$textStyle}";
-  }
+  font-family: map.get(t.$ff, $family), sans-serif;
+  font-size: map.get(t.$fs, $size);
+  font-weight: map.get(t.$fw, $weight);
 }
 
 @mixin linkhover($mode, $duration) {
