@@ -1,0 +1,26 @@
+$colors: (/* COFFEE BASED THEME */
+  lightmode: (
+    light-bg: #F6F2E9,
+    light-fg: #6F4E37,
+    light-txt: #2B1B12,
+  ),
+  darkmode: (
+    dark-bg: #1E1A16,
+    dark-fg: #A68A6D,
+    dark-txt: #F5EDE4,
+  ),
+  universal: (
+    primary-accent: #A47551,
+    secondary-accent: #C88E6C,
+    card-popup: rgba(0, 0, 0, 2.5),
+    lm-extra: #C97C47,
+    dm-extra: #D2691E,
+  ),
+  external-design:(
+    bg-extra: #2B1D1B, 
+    hbg-extra: #3E2723, 
+    secondary-txt-extra: #CBB199, 
+    heading-extra: #4E3B31, 
+    main-text-extra: #EADBC8, 
+  )
+);

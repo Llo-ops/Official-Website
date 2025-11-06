@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use '../abstracts/colors' as c;
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as mx;
+@use '../abstracts/typography' as t;
+
+.header {
+  background-color: map.get(map.get(c.$colors, lightmode), light-bg);
+  width: 100%;
+  height: 60px;
+  border-radius: map.get(v.$border-radius, round-3);
+  @include mx.typecombo(flex-h-center);
+  ul{
+    @include mx.typecombo(flex-h);
+    gap: 20px;
+    
+    li {
+      @include mx.textStyle(normal, semibold);
+      transition: 0.4s;
+      
+      &:hover {
+        @include mx.linkhover(light, slow);
+      }
+    }
+  }
+}

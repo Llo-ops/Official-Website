@@ -1,0 +1,48 @@
+$border-radius: (
+  round-1: 4px,
+  round-2: 8px,
+  round-3: 12px,
+  round-4: 24px,
+  round-half: 50%,
+  round-full: 100%,
+);
+
+$padding: (
+  vsm: 4px,
+  sm: 12px,
+  md: 24px,
+  lg: 36px,
+  xl: 48px,
+  2xl: 64px,
+  3xl: 128px,
+);
+
+$margin: (
+  sm: 12px,
+  md: 24px,
+  lg: 36px,
+  xl: 48px,
+  2xl: 64px,
+  3xl: 128px,
+);
+
+$animation-speed: (
+  fast: 0.2s,
+  normal: 0.4s,
+  slow: 0.8s
+);
+
+$animation-ease: (
+  smooth: ease-in-out,
+  in: ease-in,
+  out: ease-out,
+);
+
+$gap: (
+  sm: 4px,
+  md: 8px,
+  lg: 12px,
+  xl: 24px,
+  2xl: 48px,
+  auto: auto,
+)

@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '../abstracts/colors' as c;
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as mx;
+@use '../abstracts/typography' as t;
+
+.home-credit-group {
+  @include mx.typecombo(flex-h-sb);
+  padding: 0;
+  width: 100%;
+  background-color: transparent;
+  color: map.get(map.get(c.$colors, darkmode), dark-txt);
+  p {
+    @include mx.textStyle(small, regular);
+    &:nth-child(2) {
+      @include mx.textStyle(small, extrabold);
+    }
+  }
+  group {
+    @include mx.typecombo(flex-h-sb);
+    gap: 4px;
+    p {
+      @include mx.textStyle(small, regular);
+      &:nth-child(3) {
+        text-decoration: underline;
+      }
+    }
+  }
+}

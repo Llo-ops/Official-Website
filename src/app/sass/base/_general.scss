@@ -1,0 +1,37 @@
+@use 'sass:map';
+@use '../abstracts/colors' as c;
+@use '../abstracts/variables' as v;
+@use '../abstracts/typography' as t;
+
+* {
+  font-family: t.$ff-family-sans;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  border: none;
+  border-radius: map.get(v.$border-radius, round-3);
+  background-color: map.get(map.get(c.$colors, lightmode), light-fg);
+  color: map.get(map.get(c.$colors, darkmode), dark-txt);
+}
+
