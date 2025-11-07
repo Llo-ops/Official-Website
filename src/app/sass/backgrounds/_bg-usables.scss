@@ -1,0 +1,14 @@
+@use '../backgrounds/bg-mixin' as mxbg;
+
+.bg-coffee {
+  &.dark {
+    @include mxbg.bg(coffee-dark);
+  }
+  &.light {
+    @include mxbg.bg(coffee-light);
+  }
+}
+
+.bg-test {
+  background-color: red;
+}
