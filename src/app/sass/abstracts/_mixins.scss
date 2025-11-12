@@ -89,20 +89,21 @@ flexcombo($type(h-$type), $direction(x, y, both))       = flex horizontally, bas
   }  
   
   /* CENTER */
-  @if $direction == 'both' {
-    @if $type == 'center' {
+  
+  @if $type == 'center' {
     align-items: center;
     justify-content: center;
-    }
-    @if $type == 'h-center' {
-      flex-direction: row;
-      justify-content: center;
-    }
-    @if $type == 'v-center' {
-      flex-direction: column;
-      justify-content: center;
-    }
+  }
+  @if $type == 'h-center' {
+    flex-direction: row;
+    justify-content: center;
+  }
+  @if $type == 'v-center' {
+    flex-direction: column;
+    justify-content: center;
   }  
+
+
 
   /* WRAP */
   @if $type == 'flex-wrap' {

@@ -1,0 +1,127 @@
+@use 'sass:map';
+@use '../abstracts/colors' as c;
+@use '../abstracts/typography' as t;
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as mx;
+
+h1 {
+  background-color: transparent;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  @include mx.flexcombo(v-center);
+
+  .home-console-startup-edge {
+    @include mx.flexcombo(v-center);
+    border-radius: map.get(v.$border-radius, round-2);
+
+    width: 30%;
+    height: 80%;
+    background-color: map.get(map.get(c.$colors, darkmode), dark-bg);
+    box-shadow: inset 4px 4px 4px 4px map.get(map.get(c.$colors, darkmode), dark-bg);
+    border-bottom: 8px solid map.get(map.get(c.$colors, darkmode), dark-bg);
+
+    .console-base {
+      @include mx.flexcombo(v-sb);
+      background-color: map.get(map.get(c.$colors, lightmode), light-bg);
+      border-radius: map.get(v.$border-radius, round-2);
+      padding: map.get(v.$padding, xl);
+
+      width: 100%;
+      height: 100%;
+      gap: 24px;
+      
+      .screen-home-frame {
+        @include mx.flexcombo(center);
+        
+        width: 100%;
+        height: 100%;
+
+        background: map.get(map.get(c.$colors, darkmode), dark-bg);
+        border-radius: map.get(v.$border-radius, round-1);
+        
+        .home-text-group {
+          @include mx.flexcombo(v-center);
+          width: 90%;
+          height: 90%;
+          padding: 48px;
+          border-radius: map.get(v.$border-radius, round-1);
+          background-color: map.get(map.get(c.$colors, external-design), hbg-extra);
+          box-shadow: inset 0 0 4px 1px map.get(map.get(c.$colors, darkmode), dark-bg);
+          user-select: none;
+
+          h1 {
+            @include mx.textStyle(poppins, article, bold);
+            text-align: center;
+            color: map.get(map.get(c.$colors, external-design), main-text-extra);
+          } p {
+            @include mx.textStyle(poppins, normal, semibold);
+            color: map.get(map.get(c.$colors, external-design), main-text-extra);
+          }
+        }
+      }
+
+      .btn-area-home-frame {
+        @include mx.flexcombo(h-sa);
+        
+        width: 100%;
+        height: 30%;
+
+        .vent {
+          place-content: center;
+          height: auto;
+          display: grid;
+          gap: 4px;
+
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+        } span {
+          border-radius: 100%;
+          width: 16px;
+          height: 16px;
+          background-color: map.get(map.get(c.$colors, external-design), main-text-extra);
+          box-shadow: inset 0 4px 4px 0 rgba(map.get(map.get(c.$colors, darkmode), dark-bg), 0.25);
+        }
+
+        .btn-group-home {
+          @include mx.flexcombo(center);
+          width: 100%;
+          height: 100%;
+          .btnbase {
+            @include mx.flexcombo(center);
+            width: 50%;
+            aspect-ratio: 1 / 1;
+            border-radius: map.get(v.$border-radius, round-full);
+            background-color: map.get(map.get(c.$colors, external-design), main-text-extra);
+            box-shadow: inset 0 -4px 0 0 map.get(map.get(c.$colors, external-design), bg-extra);
+            border: 4px solid black;
+            position: relative;
+          } button {
+            @include mx.flexcombo(center);
+
+            border: 4px solid map.get(map.get(c.$colors, external-design), bg-extra);
+            background-color: map.get(map.get(c.$colors, universal), primary-accent);
+            box-shadow: 0 6px 0 0 map.get(map.get(c.$colors, external-design), heading-extra),
+            0 8px 2px 1px rgba(map.get(map.get(c.$colors, darkmode), dark-bg), 0.4);
+
+            border-radius: map.get(v.$border-radius, round-full);
+            margin-bottom: 20%;
+            width: 90%;
+            aspect-ratio: 1 / 1;
+            position: absolute;
+            transition: 0.4s ease, box-shadow 0.2s ease;
+
+            &:hover {
+              margin-bottom: 10%;
+              box-shadow: none;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

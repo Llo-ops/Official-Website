@@ -29,10 +29,3 @@ img {
   display: block;
 }
 
-button {
-  border: none;
-  border-radius: map.get(v.$border-radius, round-3);
-  background-color: map.get(map.get(c.$colors, lightmode), light-fg);
-  color: map.get(map.get(c.$colors, darkmode), dark-txt);
-}
-
