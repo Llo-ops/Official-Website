@@ -1,9 +1,16 @@
+'use client'
+import { useRouter } from 'next/navigation';
 import '@/app/sass/main/style.scss';
 
 export default function Home() {
+  const router = useRouter();
+
+  const clickToHomePage = () => {
+    router.push("/home")
+  }
   return (
     <>
-      <section>
+      <section className='root'>
         <div className='home-console-startup-edge'>
           <div className="console-base">
 
@@ -30,7 +37,7 @@ export default function Home() {
               </div>
               <div className="btn-group-home">
                 <div className="btnbase">
-                  <button></button>
+                  <button onClick={ clickToHomePage }></button>
                 </div>
               </div>
               <div className="vent">
