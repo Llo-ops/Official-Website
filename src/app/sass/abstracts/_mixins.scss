@@ -110,6 +110,11 @@ flexcombo($type(h-$type), $direction(x, y, both))       = flex horizontally, bas
     justify-content: center;
     flex-wrap: wrap;
   }
+
+  /* Content at END */
+  @if $type == 'end' {
+    justify-content: flex-end;
+  }
 }
 
 @mixin boxShadow($shadow) {
