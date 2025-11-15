@@ -58,12 +58,11 @@ flexcombo($type(h-$type), $direction(x, y, both))       = flex horizontally, bas
 @mixin flexcombo($type) {
   display: flex;
   align-items: center;
-  padding: 4px;
   
   /* HORIZINTAL */
   @if $type == 'h-start' {
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
   }
   @if $type == 'h-sb' {
     flex-direction: row;
@@ -77,7 +76,7 @@ flexcombo($type(h-$type), $direction(x, y, both))       = flex horizontally, bas
   /* VERTICAL */
   @if $type == 'v-start' {
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
   }
   @if $type == 'v-sb' {
     flex-direction: column;

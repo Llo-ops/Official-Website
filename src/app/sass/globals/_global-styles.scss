@@ -51,11 +51,11 @@
           user-select: none;
 
           h1 {
-            @include mx.textStyle(poppins, article, bold);
+            @include mx.textStyle(inter, article, bold);
             text-align: center;
             color: map.get(map.get(c.$colors, external-design), main-text-extra);
           } p {
-            @include mx.textStyle(poppins, normal, semibold);
+            @include mx.textStyle(inter, normal, semibold);
             color: map.get(map.get(c.$colors, external-design), main-text-extra);
           }
         }
@@ -127,11 +127,12 @@ h1 {
   color: white;
 }
 
-.layout-flex {
+.layout-flex-wrapper {
   @include mx.flexcombo(v-center);
   width: 100%;
   height: 100dvh;
-  background-color: red;
+  padding: 16px;
+  gap: 4px;
 }
 
 .header-frame {
@@ -139,24 +140,81 @@ h1 {
   width: 100%;
   .navbar {
     @include mx.flexcombo(center);
-    border-radius: map.get(v.$border-radius, round-4);
-    width: 99%;
+    border-radius: map.get(v.$border-radius, round-2);
+    width: 100%;
     gap: 24px;
     padding: 12px;
     background-color: map.get(map.get(c.$colors, lightmode), light-bg);
   
     .nav-text-style {
-      @include mx.textStyle(poppins, small, bold);
+      @include mx.textStyle(inter, small, bold);
     }
   }
 }
 
 
-.children-page {
+.mid-section {
   @include mx.flexcombo(center);
   width: 100%;
   height: 100%;
-  background-color: blue;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: map.get(map.get(c.$colors, lightmode), light-bg);
+  border-radius: map.get(v.$border-radius, round-2);
+}
+
+/* SPECIAL STYLES FOR HOME PAGE */
+.mid-section-home {
+  @include mx.flexcombo(v-sb);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  border-radius: map.get(v.$border-radius, round-2);
+  gap: 4px;
+
+  .bottom-portion-home {
+    @include mx.flexcombo(h-sb);
+    width: 100%;
+    padding: 12px;
+    background-color: map.get(map.get(c.$colors, lightmode), light-bg);
+    border-radius: map.get(v.$border-radius, round-2);
+
+    .socials-home{
+      @include mx.flexcombo(h-sa);
+    }
+
+    button {
+      @include mx.flexcombo(h-start);
+      gap: 12px;
+      padding: 8px;
+      border-radius: map.get(v.$border-radius, round-2);
+      border: 1px solid map.get(map.get(c.$colors, external-design), hbg-extra);
+      width: 80px;
+      overflow: hidden;
+      p {
+        @include mx.textStyle(inter, normal, bold);
+      } span {
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+      }
+
+      &:hover {
+        span {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    }
+  } .home-page-style {
+    @include mx.flexcombo(center);
+    width: 100%;
+    height: 100%;
+    background-color: map.get(map.get(c.$colors, lightmode), light-bg);
+    border-radius: map.get(v.$border-radius, round-2);
+  }
 }
 
 .footer-frame {
@@ -169,7 +227,7 @@ h1 {
   p,
   button,
   span{
-    @include mx.textStyle(poppins, x-small, bold);
+    @include mx.textStyle(inter, x-small, bold);
     color: map.get(map.get(c.$colors, external-design), main-text-extra);
   } button {
     border: none;
@@ -208,36 +266,8 @@ h1 {
   width: 100%;
 }
 
+
 /* PAGE STYLES */
 
-.home-page-layout {
-  @include mx.flexcombo(v-sb);
-  background-color: black;
-  width: 100%;
-  height: 100%;
-  gap: 12px;
+/* Home Page */
 
-  .top-portion {
-    h1,
-    p {
-      color: map.get(map.get(c.$colors, lightmode), light-txt);
-      text-align: center;
-    } h1 {
-      @include mx.textStyle(poppins, header, bold);
-    } p {
-      @include mx.textStyle(poppins, normal, semibold);
-    }
-    
-    @include mx.flexcombo(v-center);
-    width: 100%;
-    height: 90%;
-    background-color: green;
-  }
-  
-  .bottom-portion {
-    @include mx.flexcombo(h-sb);
-    width: 100%;
-    height: 10%;
-    background-color: yellow;
-  }
-}
