@@ -21,10 +21,10 @@ export default function PagesLayout({
   const pathname = usePathname();
 
   const navigationLinks = [
-    {name: "HOME", href: "/home"},
-    {name: "PROJECTS", href: "/projects"},
-    {name: "ABOUT", href: "/about"},
-    {name: "CONTACT", href: "/contact"},
+    {name: "Home", href: "/home"},
+    {name: "Projects", href: "/projects"},
+    {name: "Abput", href: "/about"},
+    {name: "Contact", href: "/contact"},
   ]
   
   const [open, setOpen] = useState(false);
@@ -51,21 +51,21 @@ export default function PagesLayout({
             <section className="mid-section-home">
               {children}
               <div className="bottom-portion-home">
-                <button>
-                  <Phone size={24} />
+                <button className='contact-btn'>
+                  <Phone className='quick-icon' size={24} />
                   <span>Contact Me</span>
                 </button>
                 <div className="socials-home">
-                  <button>
-                    <FacebookIcon size={24}/>
+                  <button className='fb'>
+                    <FacebookIcon className='quick-icon' size={24}/>
                     <span>Facebook</span>
                   </button>
-                  <button>
-                    <GithubIcon size={24}/>
+                  <button className='github'>
+                    <GithubIcon className='quick-icon' size={24}/>
                     <span>Github</span>
                   </button>
-                  <button>
-                    <LinkedinIcon size={24}/>
+                  <button className='li'>
+                    <LinkedinIcon className='quick-icon' size={24}/>
                     <span>LinkedIn</span>
                   </button>
                 </div>
