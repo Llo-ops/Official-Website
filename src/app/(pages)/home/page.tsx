@@ -22,7 +22,7 @@ export default function HomePage() {
 
         <section className="bottom-side">
           <h1 className="intro-title">WHAT I DO</h1>
-          <div className="intro-cards">
+          <div className="intro-card-frame">
             <div className="card-style">
               <div className="card-icon"><Code /></div>
               <div className="card-title">Code and Concepts</div>
@@ -42,6 +42,13 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+          <div className="cloud-frame">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
       </section>
     </>
   )

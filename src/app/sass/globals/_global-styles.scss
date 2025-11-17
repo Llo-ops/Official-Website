@@ -146,8 +146,53 @@ h1 {
     padding: 12px;
     background-color: map.get(map.get(c.$colors, lightmode), light-bg);
   
-    .nav-text-style {
-      @include mx.textStyle(inter, small, bold);
+    ul {
+      @include mx.flexcombo(center);
+      width: 100%;
+      gap: 12px;
+
+      .nav-links {
+        @include mx.flexcombo(h-center);
+        @include mx.textStyle(inter, normal, thin);
+        gap: 24px;
+        padding: 4px;
+        width: 60px;
+        text-decoration: none;
+        position: relative;
+        text-decoration: none;
+        
+        &::after {
+          content: "";
+          position: absolute;
+          border-radius: 100%;
+          left: 0;
+          bottom: 0;
+          width: 0;
+          height: 1px;
+          background-color: black;
+          transition: width 0.25s ease;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+
+      }
+
+      .active-nav-link {
+        @include mx.textStyle(inter, normal, regular);
+        position: relative;
+        &::after{
+          width: 100%;
+          border-radius: 100%;
+          left: 0;
+          bottom: 0;
+          height: 1px;
+          background-color: black;
+          position: absolute;
+        }
+      }
+
     }
   }
 }
@@ -161,6 +206,31 @@ h1 {
   box-sizing: border-box;
   background-color: map.get(map.get(c.$colors, lightmode), light-bg);
   border-radius: map.get(v.$border-radius, round-2);
+  position: relative;
+  .cloud-frame{
+    border-radius: map.get(v.$border-radius, round-2);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    overflow: hidden;
+    span {
+      @include mx.flexcombo(center);
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(map.get(map.get(c.$colors, outside-neutrals), gray), 1);
+      border-radius: 100%;
+      z-index: 100;
+    }
+
+    span:nth-child(1) { width:400px;   height:400px;  left: -210;   bottom: -160;}
+    span:nth-child(2) { width:400px;   height:400px;  left: 60 ;    bottom: -300;}
+    span:nth-child(3) { width:400px;   height:400px;  left: 280;    bottom: -280;}
+    span:nth-child(4) { width:400px;   height:400px;  right: 160;   bottom: -320;}
+    span:nth-child(5) { width:400px;   height:400px;  right: -140;  bottom: -160;}
+
+  }
 }
 
 /* SPECIAL STYLES FOR HOME PAGE */
@@ -284,7 +354,6 @@ h1 {
 /* PAGE STYLES */
 
 /* Home Page */
-
 .home-page-style {
   @include mx.flexcombo(v-center);
   width: 100%;
@@ -295,7 +364,6 @@ h1 {
 
   .top-side {
     @include mx.flexcombo(v-center);
-    background-color: red;
     width: 580px;
     gap: 12px;
 
@@ -310,30 +378,69 @@ h1 {
 
   .bottom-side {
     @include mx.flexcombo(v-center);
-    background-color: green;
 
-    .intro-cards {
+    .intro-card-frame {
       @include mx.flexcombo(h-sa);
       gap: 24px;
+      z-index: 2;
 
       .card-style{
+        @include mx.flexcombo(v-center);
         width: 240px;
         height: 180px;
         border-radius: map.get(v.$border-radius, round-2);
         padding: map.get(v.$padding, sm);
         gap: 12px;
-        background-color: blue;
-
+        background-color: map.get(map.get(c.$colors, universal), dm-extra);
+        box-shadow: 0 4px 10px 0 rgba(map.get(map.get(c.$colors, darkmode), dark-bg), 0.8);
+        color: map.get(map.get(c.$colors, darkmode), dark-txt);
         .card-icon {
-
+          @include mx.flexcombo(h-start);
+          width: 100%;
         }
         .card-title {
-
+          @include mx.textStyle(inter, normal, semibold);
+          @include mx.flexcombo(center);
+          width: 100%;
         }
         .card-description {
-
+          @include mx.flexcombo(center);
+          @include mx.textStyle(inter, small, regular);
+          width: 90%;
+          height: 100%;
+          text-align: center;
         }
       }
     }
   }
+
+  position: relative;
+  .cloud-frame{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    overflow: hidden;
+    border-radius: map.get(v.$border-radius, round-2);
+    span {
+      @include mx.flexcombo(center);
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(map.get(map.get(c.$colors, outside-neutrals), gray), 1);
+      border-radius: 100%;
+      z-index: 1;
+    }
+
+    span:nth-child(1) { width:400px;   height:400px;  left: -210;   bottom: -160;}
+    span:nth-child(2) { width:400px;   height:400px;  left: 60 ;    bottom: -300;}
+    span:nth-child(3) { width:400px;   height:400px;  left: 280;    bottom: -280;}
+    span:nth-child(4) { width:400px;   height:400px;  right: 160;   bottom: -320;}
+    span:nth-child(5) { width:400px;   height:400px;  right: -140;  bottom: -160;}
+  }
+}
+
+
+.projects-page-style{
+  width: 100%;
 }

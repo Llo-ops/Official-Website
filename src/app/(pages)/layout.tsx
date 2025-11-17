@@ -23,27 +23,34 @@ export default function PagesLayout({
   const navigationLinks = [
     {name: "Home", href: "/home"},
     {name: "Projects", href: "/projects"},
-    {name: "Abput", href: "/about"},
+    {name: "About", href: "/about"},
     {name: "Contact", href: "/contact"},
   ]
   
   const [open, setOpen] = useState(false);
-
+  
   return (
     <html>
       <body>
         <div className="layout-flex-wrapper">
           <section className="header-frame">
             <div className='navbar'>
-              {navigationLinks.map((link) => {
-                return (
-                  <Link
-                    className='nav-text-style'
-                    href={link.href} key={link.name}>
-                      {link.name}
-                  </Link>
-                )
-              })}
+              <ul>
+                {navigationLinks.map((link) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <li>
+                      <Link
+                        href={link.href} 
+                        key={link.name} 
+                        className={`nav-links ${isActive ? "active-nav-link" : ""}`}
+                        >
+                          {link.name}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
             </div>
           </section>
 
@@ -74,6 +81,13 @@ export default function PagesLayout({
           ): (
             <div className="mid-section">
               {children}
+              <div className="cloud-frame">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </div>
           )}
 
